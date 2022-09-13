@@ -1,0 +1,98 @@
+{
+    "navbar": {
+        "home": "Home",
+        "projects": "Our Projects",
+        "contact": "Contact Us"
+    },
+    "business": {
+        "expertise": "Our expertise",
+        "trust": "They trust us",
+        "customer": "Our customers",
+        "philosophy": "Our belief",
+        "title": {
+            "first": "We support you in all your projects",
+            "second": "We empower you with the best resources",
+            "third": "Free consultation services for your next collobaration"
+        },
+        "info": {
+            "first": "We provide solutions for complex IT security challenges in multicultural environments, with good delivery experience regarding costs, timing and quality for you business.",
+            "second": "We construct and creates a cyber world that helps us to secure your data with the most elite security, including in-home installations, and providing your service with our products.",
+            "third": "Within a global landscape that is highly competitive and diverse, we simplify the process of integrating solutions for your business, to  ensure a smooth and successful outcome of the desired service.",
+            "quart": "Our comprehensive services provide the technological and industrial expertise, solutions, skills, management frameworks and processes our customer needs to successfully design, operate and enhance their commercial applications."
+        }
+    },
+    "philosophy": {
+        "mission": {
+            "title": "Our Mision",
+            "description": "Deliver the most complete solutions in the tech marketplace."
+        },
+        "vision": {
+            "title": "Our Vision",
+            "description": "Empowering businesses to excel by offering innovative solutions."
+        },
+        "value": {
+            "title": "Our Value",
+            "description": "Work with quality, integrity, beyond boundaries, to meet our clients' needs."
+        }
+    },
+    "header": {
+        "question": "Seeking a reliable technology partner?",
+        "answer": "At Hypercube, we support you in all, from strategic thinking and conception to operational implementation and close production, all around the world.",
+        "contact": "Have a question?",
+        "talk": "Write it to us, at Hypercube the first thing we do is to listen to you before anything else, that why we are the greatest listener in the country."
+    },
+    "solutions": {
+        "consulting": {
+            "title": "Consulting",
+            "description": "We, Hypercube deliver a wide range of services, including analyzing, defining, designing, and implementing successful road maps of IT transformation to develop your business performance."
+        },
+        "network": {
+            "title": "Networks",
+            "description": "Against the backdrop of hyperconnected ecosystems, we, Hypercube provide cost-effective and efficient network-managed solutions, from satellite service to local networks, to optimize your business productivity."
+        },
+        "integration": {
+            "title": "Integration",
+            "description": "Withing a global landscape that is highly competitive and diverse, we, Hypercube simplify the process of integration solutions for your business with the best resources to ensure smooth and successful execution of the desired service."
+        },
+        "security": {
+            "title": "Security",
+            "description": "Through analysis, study, and recommendation of security standards, we, Hypercube define cybersecurity strategies, integrate solutions, secure infrastructures, and therefore ensure the integrity and confidentiality of your company data."
+        },
+        "digital": {
+            "title": "Digital",
+            "description": "From website to mobile application through complex eCommerce solutions, we, Hypercube design and implement cost-effective and efficient digital solutions for your business."
+        },
+        "nofound": "Yub! That's all. Come back soon for more services."
+
+    },
+    "footer": {
+        "description": "We, Hypercube constructs and creates a cyber world that helps you to secure your data with the most elite security.",
+        "resources": {
+            "title": "Resources",
+            "quotation": "Request Quotation",
+            "portfolio": "Our Portfolio",
+            "contact": "Contact Us"
+        },
+        "partners": "Partners",
+        "intouch": "Get In Touch"
+    },
+    "form": {
+        "firstname": "First Name",
+        "lastname": "Last Name",
+        "fullname": "First & Last Name",
+        "email": "E-mail address",
+        "phone": "Mobile number",
+        "subject": "Purpose",
+        "getStarted": "Get Started",
+        "requestNow": "Request Now",
+        "mail": "Your message",
+        "message": "Tell us how we can help you?",
+        "totalChar": "Characters",
+        "mailit": "Envoyer",
+        "requestDes": "The form below enables you to submit your specific needs to us. And we will respond as quickly as possible within the next 24 hours.",
+        "choose": "Choose service(s)",
+        "solutions": "Choose among our services",
+        "tellUs": "Tell us a little bit about your project...",
+        "project": "Project description"
+    }
+}
