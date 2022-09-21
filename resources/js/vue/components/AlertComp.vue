@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed bottom-4 left-4 right-4 z-20" v-if="alert">
+    <div class="fixed bottom-4 left-4 right-4 z-50" v-if="alert">
         <div
             class="mx-auto max-w-md bg-white border-l-4 rounded-md px-4 py-3 shadow-lg"
             role="alert"

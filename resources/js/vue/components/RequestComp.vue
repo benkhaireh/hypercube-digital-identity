@@ -2,13 +2,14 @@
     <div class="fixed top-0 left-0 right-0 bottom-0 z-50" v-if="request">
         <div class="absolute top-0 right-0 left-0 backdrop"></div>
         <div
-            class="relative mx-auto px-4 md:px-auto w-full lg:w-2/4 sm:w-4/5 pt-8 pb-8 z-10 h-full overflow-y-auto"
+            class="relative mx-auto px-4 md:px-auto w-full lg:w-2/4 sm:w-4/5 py-4 z-10 h-full overflow-y-auto"
             v-click-away="hideRequest"
         >
             <form
                 action=""
                 method="post"
                 class="px-4 py-8 md:px-8 shadow-lg rounded-xl bg-gray-100"
+                @submit.prevent="requestService"
             >
                 <p class="block w-full pb-6 text-gray-500">
                     {{ $t("form.requestDes") }}
@@ -22,7 +23,7 @@
                         icon="user-3"
                         v-model="formData.fullname"
                         :error="error.fullname"
-                        subclass="capitalize"
+                        supclass="capitalize"
                         required
                     />
                     <input-comp
@@ -41,13 +42,16 @@
                         {{ $t("form.choose") }}
                     </span>
                     <Multiselect
-                        v-model="value"
+                        v-model="formData.service"
                         :options="options"
                         :placeholder="$t('form.solutions')"
                         :multiple="true"
                         :allowEmpty="false"
                         label="name"
                         track-by="name"
+                        :selectLabel="$t('form.select')"
+                        :deselectLabel="$t('form.deselect')"
+                        :selectedLabel="$t('form.selected')"
                     ></Multiselect>
                 </div>
                 <textarea-comp
@@ -86,15 +90,31 @@ export default {
             type: Boolean,
             default: true,
         },
+        hasError: {
+            type: Array,
+            default: [],
+        },
+        hasSuccess: {
+            type: Boolean,
+            default: false,
+        },
     },
     components: { Multiselect, InputComp, TextareaComp },
     data() {
         return {
-            value: [{ id: "consulting", name: this.$t("solutions.consulting.title") }],
+            _token: document
+                .querySelector('meta[name="_token"]')
+                .getAttribute("content"),
             options: [
-                { id: "consulting", name: this.$t("solutions.consulting.title") },
+                {
+                    id: "consulting",
+                    name: this.$t("solutions.consulting.title"),
+                },
                 { id: "network", name: this.$t("solutions.network.title") },
-                { id: "integration", name: this.$t("solutions.integration.title") },
+                {
+                    id: "integration",
+                    name: this.$t("solutions.integration.title"),
+                },
                 { id: "security", name: this.$t("solutions.security.title") },
                 { id: "digital", name: this.$t("solutions.digital.title") },
             ],
@@ -102,11 +122,18 @@ export default {
                 fullname: "",
                 email: "",
                 message: "",
+                service: [
+                    {
+                        id: "consulting",
+                        name: this.$t("solutions.consulting.title"),
+                    },
+                ],
             },
             error: {
                 fullname: "",
                 email: "",
                 message: "",
+                service: "",
             },
         };
     },
@@ -116,17 +143,46 @@ export default {
             this.formData.fullname = "";
             this.formData.email = "";
             this.formData.message = "";
+            this.formData.service = [
+                {
+                    id: "consulting",
+                    name: this.$t("solutions.consulting.title"),
+                },
+            ];
 
             this.error.fullname = "";
             this.error.email = "";
             this.error.message = "";
+            this.error.service = ""
         },
         setService: function (service) {
-            this.value = this.options.find(option => option.id == service);
-            console.log(this.service);
+            this.formData.service = this.options.find(
+                (option) => option.id == service
+            );
         },
         getCurrent: function (e) {
             console.log(e);
+        },
+        requestService: function () {
+            const body = JSON.stringify(this.formData);
+            this.$emit("dataForm", body);
+        },
+    },
+    watch: {
+        hasError: function (data) {
+            console.log(data)
+            const errors = Object.keys(data);
+            for (let i = 0; i < errors.length; i++) {
+                const errorTxt = data[errors[i]];
+                this.error[errors[i]] = this.$t(
+                    "form.error." + errorTxt.toString()
+                );
+            }
+        },
+        hasSuccess: function (data) {
+            if (data == true) {
+                this.hideRequest();
+            }
         },
     },
 };

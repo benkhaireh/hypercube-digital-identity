@@ -3,15 +3,21 @@
         <nav-comp></nav-comp>
         <router-view
             :loader="loader"
-            @getLoader="setLoader"
+            @loader="setLoader"
             @alert="theAlert"
             @altType="setAltType"
             @altTxt="setAltTxt"
             @altLang="setAltLang"
         ></router-view>
-        <footer-comp></footer-comp>
+        <footer-comp
+            @loader="setLoader"
+            @alert="theAlert"
+            @altType="setAltType"
+            @altTxt="setAltTxt"
+            @altLang="setAltLang"
+        ></footer-comp>
         <div
-            class="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center z-30"
+            class="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center z-50"
             v-if="loader"
         >
             <div class="absolute top-0 left-0 right-0 bottom-0 backdrop"></div>
@@ -19,6 +25,14 @@
                 <div></div>
                 <div></div>
             </div>
+        </div>
+        <div v-if="hasAlert">
+            <alert-comp
+                :alertType="altType"
+                :alertTxt="altTxt"
+                :alertLang="altLang"
+                @alert="theAlert"
+            />
         </div>
     </div>
 </template>
@@ -32,6 +46,10 @@ export default {
     data() {
         return {
             loader: false,
+            hasAlert: false,
+            altType: "",
+            altTxt: "",
+            altLang: localStorage.getItem("locale"),
         };
     },
     methods: {
@@ -39,7 +57,7 @@ export default {
             this.loader = load;
         },
         theAlert(e) {
-            this.alertContainer = e;
+            this.hasAlert = e;
         },
         setAltType(e) {
             this.altType = e;

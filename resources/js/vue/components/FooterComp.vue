@@ -5,12 +5,12 @@
                 <a href="/" class="flex items-center">
                     <img
                         src="/imgs/brand.png"
-                        class="mr-3 h-12"
+                        class="mr-3 h-12 lg:h-16"
                         alt="Safe Tech Logo"
                     />
                 </a>
-                <p class="text-gray-400 text-sm mt-4">
-                    {{ $t('footer.description') }}
+                <p class="text-gray-400 mt-4">
+                    {{ $t("footer.description") }}
                 </p>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-3">
@@ -18,26 +18,37 @@
                     <h2
                         class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
                     >
-                        {{ $t('footer.resources.title') }}
+                        {{ $t("footer.resources.title") }}
                     </h2>
                     <ul class="text-gray-600 dark:text-gray-400">
                         <li class="mb-4">
-                            <a href="#" class="hover:underline focus:underline"
-                                >{{ $t('footer.resources.quotation') }}</a
+                            <button
+                                type="button"
+                                class="hover:underline focus:underline"
+                                @click="showRequest"
+                            >
+                                {{ $t("footer.resources.quotation") }}
+                            </button>
+                        </li>
+                        <li class="mb-4">
+                            <a
+                                href="/projects"
+                                class="hover:underline focus:underline"
+                                >{{ $t("footer.resources.portfolio") }}</a
                             >
                         </li>
                         <li class="mb-4">
                             <a
-                                href="/crowdfunding"
+                                href="/aboutus"
                                 class="hover:underline focus:underline"
-                                >{{ $t('footer.resources.portfolio') }}</a
+                                >{{ $t("footer.resources.about") }}</a
                             >
                         </li>
                         <li>
                             <a
-                                href="/ecommerce"
+                                href="/contactus"
                                 class="hover:underline focus:underline"
-                                >{{ $t('footer.resources.contact') }}</a
+                                >{{ $t("footer.resources.contact") }}</a
                             >
                         </li>
                     </ul>
@@ -46,21 +57,21 @@
                     <h2
                         class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
                     >
-                    {{ $t('footer.partners') }}
+                        {{ $t("footer.partners") }}
                     </h2>
                     <ul class="text-gray-600 dark:text-gray-400">
-                        <li class="mb-4">
-                            <a
-                                href="https://www.fortinet.com/"
-                                class="hover:underline focus:underline"
-                                >Fortinet</a
-                            >
-                        </li>
                         <li class="mb-4">
                             <a
                                 href="https://www.xerox.com/"
                                 class="hover:underline focus:underline"
                                 >Xerox</a
+                            >
+                        </li>
+                        <li class="mb-4">
+                            <a
+                                href="https://www.fortinet.com/"
+                                class="hover:underline focus:underline"
+                                >Fortinet</a
                             >
                         </li>
                         <li>
@@ -76,7 +87,7 @@
                     <h2
                         class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
                     >
-                    {{ $t('footer.intouch') }}
+                        {{ $t("footer.intouch") }}
                     </h2>
                     <ul class="text-gray-600 dark:text-gray-400">
                         <li class="mb-4 flex items-center">
@@ -106,29 +117,53 @@
         </div>
         <hr class="my-6 border-gray-500 sm:mx-auto lg:my-8" />
         <div class="flex items-center justify-between">
-            <span class="text-sm text-gray-500 sm:text-center"
-                >&copy; 2022 HYPERCUBE</span
+            <span class="text-gray-500 sm:text-center"
+                >&copy; 2022 HYPERCUBE, Together Beyond The Limits</span
             >
-            <div class="flex space-x-6 sm:justify-center text-sm">
-                <a
-                    href="#"
+            <div class="flex space-x-6 sm:justify-center">
+                <button
+                    type="button"
                     @click="setLocale('en', 'English')"
                     class="text-gray-500 hover:underline focus:underline"
-                    >English</a
                 >
-                <a
-                    href="#"
+                    English
+                </button>
+                <button
+                    type="button"
                     @click="setLocale('fr', 'Français')"
                     class="text-gray-500 hover:underline focus:underline"
-                    >Français</a
                 >
+                    Français
+                </button>
             </div>
         </div>
+        <section>
+            <request-comp
+                :request="request"
+                @request="setRequest"
+                @dataForm="requestService"
+                :hasError="requestError"
+                :hasSuccess="requestSuccess"
+                ref="request"
+            ></request-comp>
+        </section>
     </footer>
 </template>
 <script>
+import RequestComp from "../components/RequestComp.vue";
 export default {
     name: "FooterBar",
+    components: { RequestComp },
+    data() {
+        return {
+            _token: document
+                .querySelector('meta[name="_token"]')
+                .getAttribute("content"),
+            request: false,
+            requestError: [],
+            requestSuccess: false,
+        };
+    },
     methods: {
         setLocale: function (lang, current_lang) {
             if (lang == "en") return;
@@ -136,6 +171,66 @@ export default {
             this.current_lang = current_lang;
             this.language = false;
             localStorage.setItem("locale", lang);
+        },
+        showRequest: function () {
+            this.request = true;
+        },
+        setRequest: function (e) {
+            this.request = e;
+        },
+        getQuote: function (quote, request) {
+            this.request = request;
+            this.$refs.request.setService(quote);
+        },
+        requestService: function (dataForm) {
+            this.$emit("loader", true);
+            const header = {
+                credentials: "same-origin",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": this._token,
+                },
+            };
+
+            const body = dataForm;
+
+            const service = async () => {
+                let data = await axios
+                    .post("/request/service", body, header)
+                    .catch((error) => {
+                        if (error.response.status == 419) {
+                            this.$emit("alert", true);
+                            this.$emit("altType", "error");
+                            this.$emit(
+                                "altTxt",
+                                this.$t("form.error.unexpected")
+                            );
+                        }
+                        this.$emit("loader", false);
+                    })
+                    .then((response) => {
+                        return response.data;
+                    });
+                if (data.status == "success") {
+                    this.$emit("alert", true);
+                    this.$emit("altType", data.status);
+                    this.$emit("altTxt", this.$t(data.info.toString()));
+                    this.requestSuccess = true;
+                } else {
+                    if (data.status == "error") {
+                        this.requestError = data.info;
+                    } else {
+                        this.$emit("alert", true);
+                        this.$emit("altType", "error");
+                        this.$emit("altTxt", this.$t("form.error.unexpected"));
+                    }
+                }
+                this.$emit("loader", false);
+            };
+            setTimeout(() => {
+                this.$emit("loader", false);
+            }, 30000);
+            service();
         },
     },
 };

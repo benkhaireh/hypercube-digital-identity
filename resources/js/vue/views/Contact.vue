@@ -17,7 +17,37 @@
             </div>
         </section>
         <section class="block w-full pt-16 pb-16 px-4 md:w-2/3 mx-auto">
-            <form action="" class="block container mx-auto" method="post">
+            <div class="mb-8">
+                <ul class="flex items-center text-gray-600 dark:text-gray-400">
+                    <li class="flex items-center mr-12 whitespace-nowrap">
+                        <i class="ri-phone-line mr-2"></i
+                        ><a
+                            href="tel:+25321352929"
+                            class="hover:underline focus:underline"
+                            >+253 21 352 929</a
+                        >
+                    </li>
+                    <li class="flex items-center mr-12 whitespace-nowrap">
+                        <i class="ri-at-line mr-2"></i
+                        ><a
+                            href="mailto:contact@hypercube.dj"
+                            class="hover:underline focus:underline"
+                        >
+                            contact@hypercube.dj</a
+                        >
+                    </li>
+                    <li class="flex items-center whitespace-nowrap">
+                        <i class="ri-map-pin-line mr-2"></i
+                        ><span>Cite aviation, Djibouti</span>
+                    </li>
+                </ul>
+            </div>
+            <form
+                action=""
+                class="block container mx-auto"
+                method="post"
+                @submit.prevent="contactUs"
+            >
                 <div class="grid grid-cols-2 gap-3">
                     <input-comp
                         type="text"
@@ -48,7 +78,6 @@
                         icon="at"
                         v-model="formData.email"
                         :error="error.email"
-                        supclass="capitalize"
                         required
                     />
                     <input-comp
@@ -82,6 +111,7 @@
                         v-model="formData.message"
                         :error="error.message"
                         :placeholder="$t('form.message')"
+                        limitmaxCount="5020"
                         required
                     />
                 </div>
@@ -96,55 +126,121 @@
                 </div>
             </form>
         </section>
-        <section class="block w-full pt-16">
-            <GoogleMap
-                api-key="AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg"
-                style="width: 100%; height: 500px"
-                :center="center"
-                :zoom="15"
-            >
-                <Marker :options="markerOptions" />
-            </GoogleMap>
+        <section class="block w-full pt-12">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15635.572033140817!2d43.15542!3d11.5595272!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb3f143f57ecc99ac!2shypercube!5e0!3m2!1sfr!2sdj!4v1663154403558!5m2!1sfr!2sdj"
+                width="100%"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
         </section>
     </div>
 </template>
 <script>
 import InputComp from "../components/InputComp.vue";
 import TextareaComp from "../components/TextareaComp.vue";
-import { GoogleMap, Marker } from "vue3-google-map";
 export default {
     name: "contact",
-    components: { InputComp, TextareaComp, GoogleMap, Marker },
-    setup() {
-        const center = { lat: 40.689247, lng: -74.044502 };
-        const markerOptions = {
-            position: center,
-            label: "L",
-            title: "LADY LIBERTY",
-        };
-        return { markerOptions, center };
-    },
+    components: { InputComp, TextareaComp },
     data() {
         return {
+            _token: document
+                .querySelector('meta[name="_token"]')
+                .getAttribute("content"),
             formData: {
-                fullname: "",
+                firstname: "",
+                lastname: "",
                 email: "",
                 phone: "",
                 subject: "",
                 message: "",
             },
             error: {
-                fullname: "",
+                firstname: "",
+                lastname: "",
                 email: "",
                 phone: "",
                 subject: "",
                 message: "",
             },
-            map: null,
         };
     },
     methods: {
-        //
+        contactUs: function () {
+            this.$emit("loader", true);
+            const header = {
+                credentials: "same-origin",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": this._token,
+                },
+            };
+
+            const body = JSON.stringify(this.formData);
+
+            const contactus = async () => {
+                let data = await axios
+                    .post("/contactus", body, header)
+                    .catch((error) => {
+                        if (error.response.status == 419) {
+                            this.$emit("alert", true);
+                            this.$emit("altType", "error");
+                            this.$emit(
+                                "altTxt",
+                                this.$t("form.error.unexpected")
+                            );
+                            setTimeout(() => {
+                                window.location = "/";
+                            }, 5000);
+                        }
+                        this.$emit("loader", false);
+                    })
+                    .then((response) => {
+                        return response.data;
+                    });
+                if (data.status == "success") {
+                    this.$emit("alert", true);
+                    this.$emit("altType", data.status);
+                    this.$emit("altTxt", this.$t(data.info.toString()));
+
+                    this.formData.firstname = "";
+                    this.formData.lastname = "";
+                    this.formData.email = "";
+                    this.formData.phone = "";
+                    this.formData.subject = "";
+                    this.formData.message = "";
+
+                    this.error.firstname = "";
+                    this.formData.lastname = "";
+                    this.error.email = "";
+                    this.error.phone = "";
+                    this.error.subject = "";
+                    this.error.message = "";
+                } else {
+                    if (data.status == "error") {
+                        const errors = Object.keys(data.info);
+                        for (let i = 0; i < errors.length; i++) {
+                            const errorTxt = data.info[errors[i]];
+                            this.error[errors[i]] = this.$t(
+                                "form.error." + errorTxt.toString()
+                            );
+                        }
+                    } else {
+                        this.$emit("alert", true);
+                        this.$emit("altType", "error");
+                        this.$emit("altTxt", this.$t("form.error.unexpected"));
+                    }
+                }
+                this.$emit("loader", false);
+            };
+            setTimeout(() => {
+                this.$emit("loader", false);
+            }, 30000);
+            contactus();
+        },
     },
 };
 </script>

@@ -1,86 +1,221 @@
 {
+    "navbar": {
+        "home": "Accueil",
+        "projects": "Nos Travaux",
+        "about": "A Propos",
+        "contact": "Nous Contacter"
+    },
     "business": {
-        "expertise": "Our expertise",
-        "trust": "They trust us",
-        "customer": "Our customers",
-        "philosophy": "Our belief",
+        "expertise": "Notre savoir-faire",
+        "trust": "Ils nous font confiance",
+        "customer": "Notre clientèle",
+        "philosophy": "Notre philosophie",
+        "strength": "Notre atout",
         "title": {
-            "first": "We support you in all your projects",
-            "second": "We empower you with the best resources",
-            "third": "Free consultation services for your next collobaration"
+            "first": "Nous vous soutenons dans tous vos projets",
+            "second": "Nous vous offrons les meilleures ressources",
+            "third": "Consultation gratuit pour votre prochaine collobaration",
+            "fourth": "Fidélité",
+            "fifth": "Efficacité",
+            "sixth": "Fiabilité",
+            "seventh": "Engagement",
+            "beforeLast": "Que faisons-nous chez HyperCube?",
+            "last": "Quel est notre objectif chez HyperCube ?"
         },
         "info": {
-            "first": "We provide solutions for complex IT security challenges in multicultural environments, with good delivery experience regarding costs, timing and quality.",
-            "second": "We construct and creates a cyber world that helps us to secure your data with the most elite security, including in-home installations, and providing your service with our products.",
-            "third": "Within a global landscape that is highly competitive and diverse, we simplify the process of integrating solutions for your business, to  ensure a smooth and successful outcome of the desired service.",
-            "quart": "Our comprehensive services provide the technological and industrial expertise, solutions, skills, management frameworks and processes our customer needs to successfully design, operate and enhance their commercial applications."
+            "first": "Nous fournissons des solutions aux problèmes complexes de sécurité informatique dans des environnements multiculturels, avec une bonne expérience en matière de coûts, de délais et de qualité pour votre entreprise.",
+            "second": "Nous construisons et créons un monde cybernétique qui nous aide à sécuriser vos données avec la sécurité la plus élitiste, y compris les installations à domicile et la fourniture de votre service avec nos produits.",
+            "third": "Dans un paysage mondial hautement compétitif et diversifié, nous simplifions le processus d'intégration des solutions pour votre entreprise, afin de garantir un déroulement sans heurts et la réussite du service souhaité.",
+            "quart": "Nos services complets fournissent l'expertise technologique et industrielle, les solutions, les compétences, les cadres de gestion et les processus dont nos clients ont besoin pour concevoir, exploiter et améliorer avec succès leurs applications commerciales.",
+            "fourth": "Nous sommes fidèles à nos engagements.",
+            "fifth": "Qualité et degré d'efficacité pour nos clients.",
+            "sixth": "La qualité de nos services fait de nous le leader du marché.",
+            "seventh": "Améliorer les compétences de nos clients en matière de développement commercial et toujours travailler à leur réussite.",
+            "beforeLast": "Nous, HyperCube, sommes leaders dans l'innovation continue des technologies et des services dans les domaines de la finance, des télécommunications et de la cyber-sécurité. Notre guichet unique vous accompagne de la conception à l'intégration de solutions complexes (haute disponibilité, centres de données, backbones et réseaux de distribution, etc.)",
+            "last": "Fournir les solutions les plus complètes disponibles sur le marché et permettre aux clients de se concentrer sur leur cœur de métier. Nous, HyperCube, fournissons des technologies et des solutions informatiques efficaces qui permettent d'atteindre les objectifs commerciaux dans des environnements complexes. HyperCube travaille en étroite collaboration avec votre entreprise pour mieux comprendre vos objectifs. Notre réponse rapide et notre compréhension approfondie de la dynamique du marché nous permettent de créer et de fournir des solutions informatiques et technologiques idéales. Nous réorganisons notre activité et la transformons en technologie."
         }
     },
     "philosophy": {
         "mission": {
-            "title": "Our Mision",
-            "description": "Deliver the most complete solutions in the tech marketplace."
+            "title": "Notre mission",
+            "description": "Proposer les solutions les plus complètes du marché de la technologie."
         },
         "vision": {
-            "title": "Our Vision",
-            "description": "Empowering businesses to excel by offering innovative solutions."
+            "title": "Notre vision",
+            "description": "Donner aux entreprises les moyens d'exceller en leur proposant des solutions innovantes."
         },
         "value": {
-            "title": "Our Value",
-            "description": "Work with quality, integrity, beyond boundaries, to meet our clients' needs."
+            "title": "Nos valeurs",
+            "description": "Travailler avec qualité, intégrité, au-delà des limites, pour répondre aux besoins de nos clients."
+        }
+    },
+    "history": {
+        "title": "NOTRE HISTOIRE",
+        "info": {
+            "title": {
+                "first": "2014",
+                "second": "2016 - 2018",
+                "third": "2019",
+                "fourth": "2020",
+                "fifth": "2022"
+            },
+            "subtitle": {
+                "first": "Création de l'HyperCube",
+                "second": "Innové et influencé le marché de l'informatique",
+                "third": "Une année de grandes victoires",
+                "fourth": "Mise à l'échelle de l'HyperCube",
+                "fifth": "Lauréat du prix de la cybersécurité"
+            },
+            "description": {
+                "first": "Création et croissance de l'HyperCube grâce à des partenariats stratégiques et à un positionnement de plus en plus fort sur le marché.",
+                "second": "Leader dans les services gérés avec 36% de part de marché et 27% dans les réseaux.",
+                "third": "Remporté le marché de la conception et de la construction du réseau dorsal régional en fibre optique (Djibouti, Ethiopie et Somalie).",
+                "fourth": "Lancement de Gaashaan, une filiale spécialisée dans la cybersécurité.",
+                "fifth": "Lauréat du prix de la meilleure entreprise de cybersécurité en Afrique de l'Est."
+            },
+            "highLight": {
+                "first": "Début de l'aventure",
+                "second": "Prospère, et va toujours vers le meilleur"
+            }
         }
     },
     "header": {
-        "question": "Seeking a reliable technology partner?",
-        "answer": "At Hypercube, we support you in all, from strategic thinking and conception to operational implementation and close production, all around the world.",
-        "contact": "Have a question?",
-        "talk": "Write it to us, at Hypercube the first thing we do is to listen to you before anything else, that why we are the greatest listener in the country."
+        "question": "Vous cherchez un partenaire technologique fiable ?",
+        "answer": "Chez HyperCube, nous vous accompagnons dans toutes vos démarches, de la réflexion stratégique et la conception à la mise en œuvre opérationnelle et la production rapprochée, partout dans le monde.",
+        "project": "Nos travaux parlent plus fort que nous",
+        "project_description": "Dans chaque étape que nous entreprenons pour faire passer votre entreprise au niveau supérieur, nous le faisons avec expertise, efficacement, d'une manière unique, et avec passion.",
+        "contact": "Vous avez une question?",
+        "about": "Qui sommes-nous ",
+        "talk": "Écrivez-nous, chez HyperCube, la première chose que nous faisons est de vous écouter avant toute autre chose, c'est pourquoi nous sommes le meilleur auditeur du pays.",
+        "info": "Nous, HyperCube, sommes un intégrateur TIC de premier plan avec une technologie de pointe et un portefeuille complet. HyperCube a été fondée en 2014 et, grâce à des partenariats stratégiques et à un positionnement sur le marché, a connu une croissance de plus en plus forte."
     },
     "solutions": {
         "consulting": {
-            "title": "Consulting",
-            "description": "We, Hypercube deliver a wide range of services, including analyzing, defining, designing, and implementing successful road maps of IT transformation to develop your business performance."
+            "title": "Consultation",
+            "description": "Nous, HyperCube proposons un large éventail de services, notamment l'analyse, la définition, la conception et la mise en œuvre de feuilles de route efficaces pour la transformation des technologies de l'information afin de développer les performances de votre entreprise."
         },
         "network": {
-            "title": "Networks",
-            "description": "Against the backdrop of hyperconnected ecosystems, we, Hypercube provide cost-effective and efficient network-managed solutions, from satellite service to local networks, to optimize your business productivity."
+            "title": "Réseaux",
+            "description": "Dans le contexte des écosystèmes hyperconnectés, nous, HyperCube, fournissons des solutions rentables et efficaces de gestion de réseau, du service satellite aux réseaux locaux, pour optimiser la productivité de votre entreprise."
         },
         "integration": {
-            "title": "Integration",
-            "description": "Withing a global landscape that is highly competitive and diverse, we, Hypercube simplify the process of integration solutions for your business with the best resources to ensure smooth and successful execution of the desired service."
+            "title": "Intégration",
+            "description": "Dans un paysage mondial hautement compétitif et diversifié, nous, HyperCube, simplifions le processus d'intégration des solutions pour votre entreprise avec les meilleures ressources pour assurer l'exécution en douceur et avec succès du service souhaité."
         },
         "security": {
-            "title": "Security",
-            "description": "Through analysis, study, and recommendation of security standards, we, Hypercube define cybersecurity strategies, integrate solutions, secure infrastructures, and therefore ensure the integrity and confidentiality of your company data."
+            "title": "Sécurité",
+            "description": "Par l'analyse, l'étude et la recommandation de normes de sécurité, nous, HyperCube, définissons des stratégies de cybersécurité, intégrons des solutions, sécurisons des infrastructures, et assurons ainsi l'intégrité et la confidentialité des données de votre entreprise."
         },
         "digital": {
-            "title": "Digital",
-            "description": "From website to mobile application through complex eCommerce solutions, we, Hypercube design and implement cost-effective and efficient digital solutions for your business."
-        }
+            "title": "Numérique",
+            "description": "Du site web à l'application mobile en passant par des solutions complexes de commerce électronique, nous, HyperCube, concevons et mettons en œuvre des solutions numériques rentables et efficaces pour votre entreprise."
+        },
+        "nofound": "Yub ! C'est tout. Revenez bientôt pour d'autres services."
 
     },
     "footer": {
-        "description": "We, Hypercube constructs and creates a cyber world that helps you to secure your data with the most elite security.",
+        "description": "Nous, HyperCube, construisons et créons un cybermonde qui vous aide à sécuriser vos données avec une sécurité d'élite.",
         "resources": {
-            "title": "Resources",
-            "quotation": "Request Quotation",
-            "portfolio": "Our Portfolio",
-            "contact": "Contact Us"
+            "title": "Ressources",
+            "quotation": "Demander Un Devis",
+            "portfolio": "Nos Travaux",
+            "about": "A Propos",
+            "contact": "Nous Contacter"
         },
-        "partners": "Partners",
-        "intouch": "Get In Touch"
+        "partners": "Partenaires",
+        "intouch": "Contactez-nous"
     },
     "form": {
-        "firstname": "First Name",
-        "lastname": "Last Name",
-        "email": "E-mail address",
-        "phone": "Mobile number",
-        "subject": "Purpose",
-        "getStarted": "Get Started",
-        "requestNow": "Request Now",
-        "mail": "Your message",
-        "message": "Tell us how we can help you?",
-        "totalChar": "Characters",
-        "mailit": "Envoyer"
+        "firstname": "Nom",
+        "lastname": "Prénom",
+        "fullname": "Nom & Prénom",
+        "email": "Adresse e-mail",
+        "phone": "Numéro mobile",
+        "subject": "Object",
+        "getStarted": "Démarrez",
+        "requestNow": "Demander maintenant",
+        "mail": "Votre message",
+        "message": "Dites-nous comment nous pouvons vous aider?",
+        "totalChar": "Caractères",
+        "mailit": "Envoyer maintenant",
+        "requestDes": "Le formulaire ci-dessous vous permet de nous soumettre vos besoins spécifiques. Nous vous répondrons le plus rapidement possible dans les 24 heures qui suivent.",
+        "choose": "Choisir le(s) service(s)",
+        "solutions": "Choisissez parmi nos services",
+        "tellUs": "Parlez-nous un peu de votre projet....",
+        "project": "Description du projet",
+        "select": "Appuyez sur Entrée pour choisir",
+        "deselect": "Appuyez sur Entrée pour supprimer",
+        "selected": "Choisi",
+        "success": {
+            "service": "Bien reçu, nous communiquerons avec vous sous 24h. Merci",
+            "contact": "Bien reçu, nous vous répondrons dans les 48h suivant. Merci"
+        },
+        "error": {
+            "unexpected": "Nous avons des ennuis, veuillez nous excuser.",
+            "fullname": "Votre nom et votre prénom sont requis",
+            "firstname": "Votre nom est requis",
+            "lastname": "Votre prénom est requis",
+            "service": "Choisissez un service au minimum",
+            "email": {
+                "required": "Votre adresse e-mail est requis",
+                "invalid": "Votre adresse e-mail est invalide"
+            },
+            "phone": {
+                "required": "Votre numéro mobile est requis",
+                "invalid": "Votre numéro mobile est invalide"
+            },
+            "subject": "Veuillez nous indiquer la raison de votre contact",
+            "message": "Parlez-nous un peu de votre projet"
+        }
+    },
+    "projects": {
+        "title": "Nos projets",
+        "description": "Retrouver ici les différents types des projets entrepris par HyperCube, ainsi que les partenaires ou clients avec qui a été réaliser.",
+        "morecoming": "Beaucoup d'autres en cours",
+        "lan": {
+            "title": "Projet LAN (Local Area Network) Ministérielles",
+            "subtitle": "Agence Nationale des Systèmes d'Information de l'Etat",
+            "description": "En 2018, L'ANSIE lance offciellement la modernisation des réseaux de l'adminisration centrale avce soumissionnaire HyperCube. L'objectif est de mettre en place un réseau fiable, efficace et sécurisé dans les 24 départements ministériels. Le LAN (Local Area Network) est censé résoudre les problèmes d'organisation, tels que la surchauffe des câbles et leur usure due à l'humidité, le problème d'interconnexion entre les différents bureaux de l'administration centrale, et notamment, le problème de la détérioration des câbles par les rongeurs, cause majeure de pertubation des infrastuctures de communication."
+        },
+        "interconnexion": {
+            "title": "Projet Interconnexion",
+            "subtitle": "Caisse Nationale de Sécurité Sociale (CNSS)",
+            "description": "Fin 2020, la CNSS a décidé de renforcer sa capacité d'interconnexion entre ses sites locaux et régionaux avec soumissionnaire HyperCube. Nous, HyperCube avons livré, installé et configuré les antennes AF-5U airFiber pour apporter une solution à leurs problèmes. L'antenne airFiber AF-5U est dispositif qui offre des performances exceptionnelles, grâce aux solutions innovantes appliquées dans sa fabrication. Une fois en service, elle n'interfère pas avec le fonctionnement d'autres appareils."
+        },
+        "evisa": {
+            "title": "Projet Visa électronique",
+            "subtitle": "Direction générale de la police nationale et L’Organisation internationale pour les migrations",
+            "description": "En 2018, le gouvernemment de la République de Djibouti, par l'intermédiaire de la direction générale de la police nationale, a mis en place un système de visa électronique en ligne sécurisé (e-Visa). Ce système vise d'une part à faciliter et à sécuriser le traitement des visas, et d'autre part à faciliter l'entrée des voyageurs à Djibouti. En janvier 2021 OIM, en étroite collaboration avec la direction générale de la police nationale, a officiellement lancé la version 2 du processus e-Visa, qui vise à mettre à jour les procédures de demande de visa et à ajouter des fonctionnalités pour résoudre les problèmes identifiés dans la version 1 de e-Visa."
+        },
+        "ecertificat": {
+            "title": "Projet Certificat électronique",
+            "subtitle": "Ministère de l'Education Nationale et de la Formation Professionnelle",
+            "description": "Suspendisse tincidunt, arcu nec faucibus efficitur, justo velit consectetur nisl, sit amet condimentum lacus orci nec purus. Mauris quis quam suscipit, vehicula felis id, vehicula enim."
+        },
+        "fiberoptic": {
+            "title": "Projet Fibre Optique",
+            "subtitle": "Djibouti Télécom et Ethio Télécom",
+            "description": "En 2020, Djibouti Télécom et Ethio Télécom ont lancé conjointement la rénovation avec le soumissionnairec HyperCube. Ce projet permettra aux deux opérateurs de répondre pleienement aux besoins croissants acutels et futurs de l'Ethiopie en matière de connectivité et de données. En outre, cette liaison d'interconnexion, basée sur les dernières technologies, fournira des services améliorés de hauite capacité tout en garantissant une qualité de service optimale répondant aux normes d'internationales."
+        },
+        "sigtas": {
+            "title": "Projet SIGTAS",
+            "subtitle": "Direction générale des Impôts",
+            "description": ""
+        },
+        "atsplus": {
+            "title": "Projet ATS+",
+            "subtitle": "Banque central de Djibouti et Banque central de Somalie",
+            "description": "En 2019, l'ANPI a officiellement lancé le processus de mise en place d'un système de transfert automatisé ou ATS+ avec Montran afin de moderniser l'infrastucture financière de notre pays. Le système de transfert automatisé permet aux opérateurs économiques et financiers locaux d'effectuer des paiements sécurisés en temps réel, 24 heures sur 24 et 7 jours sur 7. Il traite de très gros volumes de paiements de petite de grande valeurs, tels que les virements, les prélèvements et les chèques, et combine un service efficace et fiable avec de solides facilités de maintien de position et de gestion des liquidités intra journalières. En partenariat avec Montran, nous, HyperCube avons livré les équipements à la banque central en toute sécurité. L'équipe HyperCube a ensuite installé et configuré les équipements."
+        },
+        "pki": {
+            "title": "Projet PKI",
+            "subtitle": "Agence Nationale des Systèmes d'Information de l'Etat",
+            "description": ""
+        },
+        "cert": {
+            "title": "Projet CERT",
+            "subtitle": "Agence Nationale des Systèmes d'Information de l'Etat",
+            "description": ""
+        }
     }
 }

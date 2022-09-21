@@ -3,17 +3,17 @@
         class="relative flex items-center justify-between bg-transparent py-6 px-4 md:px-8"
     >
         <a href="#" class="">
-            <img src="imgs/brand.png" alt="" class="block w-full h-8 lg:h-10" />
+            <img src="imgs/brand.png" alt="" class="block w-full h-8 lg:h-10 xl:h-16" />
         </a>
         <ul
-            class="hidden flex-col p-4 mt-16 w-72 bg-gray-50 rounded-lg border border-gray-100 md:flex md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white"
+            class="hidden flex-col p-4 mt-16  bg-gray-50 rounded-lg border border-gray-100 md:flex md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white"
         >
             <li>
                 <router-link
                     to="home"
                     class="block py-2 px-4 rounded-lg whitespace-nowrap text-md text-center"
                     :class="
-                        currentPage == 'home'
+                        currentPage == '' || currentPage == 'home'
                             ? 'bg-brand-primary text-white'
                             : 'text-gray-500 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-brand-primary'
                     "
@@ -35,7 +35,19 @@
             </li>
             <li>
                 <router-link
-                    to="contact"
+                    to="aboutus"
+                    class="block py-2 px-4 rounded-lg whitespace-nowrap text-md text-center"
+                    :class="
+                        currentPage == 'about'
+                            ? 'bg-brand-primary text-white'
+                            : 'text-gray-500 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-brand-primary'
+                    "
+                    >{{ $t("navbar.about") }}</router-link
+                >
+            </li>
+            <li>
+                <router-link
+                    to="contactus"
                     class="block py-2 px-4 rounded-lg whitespace-nowrap text-md text-center"
                     :class="
                         currentPage == 'contact'
@@ -93,7 +105,7 @@
                         to="home"
                         class="block py-2 pr-4 pl-3 rounded whitespace-nowrap"
                         :class="
-                            currentPage == 'home'
+                            currentPage == '' || currentPage == 'home'
                                 ? 'bg-brand-primary text-white'
                                 : 'text-gray-500 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-brand-primary'
                         "
@@ -115,7 +127,19 @@
                 </li>
                 <li>
                     <router-link
-                        to="contact"
+                        to="aboutus"
+                        class="block py-2 pr-4 pl-3 rounded whitespace-nowrap"
+                        :class="
+                            currentPage == 'about'
+                                ? 'bg-brand-primary text-white'
+                                : 'text-gray-500 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-brand-primary'
+                        "
+                        >{{ $t("navbar.about") }}</router-link
+                    >
+                </li>
+                <li>
+                    <router-link
+                        to="contactus"
                         class="block py-2 pr-4 pl-3 rounded whitespace-nowrap"
                         :class="
                             currentPage == 'contact'

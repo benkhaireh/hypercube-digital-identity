@@ -1,17 +1,9 @@
 <?php
 
+use App\Http\Controllers\RequestController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// ------------------------------------------- Front End
 
 Route::get('/', function () {
     return view('index');
@@ -25,6 +17,16 @@ Route::get('/projects', function () {
     return view('index');
 });
 
-Route::get('/contact', function () {
+Route::get('/aboutus', function () {
     return view('index');
 });
+
+Route::get('/contactus', function () {
+    return view('index');
+});
+
+// ------------------------------------------- Back End
+Route::prefix('request')->group(function () {
+    Route::post('/service', [RequestController::class, 'service'])->name('request.service');
+});
+Route::post('/contactus', [RequestController::class, 'contactus'])->name('contactus');
